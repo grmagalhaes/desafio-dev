@@ -10,15 +10,15 @@
 * Clonar o repositório 
   * https://github.com/grmagalhaes/desafio-dev.git
 * Criar um venv e habilitá-lo
-* Instalar as dependências (django, mysql e restframework). Rodar dentro da pasta "desafio"
+* Instalar as dependências (django, mysql e djangorestframework). Rodar dentro da pasta do projeto
     * pip -r requirements.txt
-* Configurar as informações de conexão com a base de dados no arquivo settings.py  
+* Configurar as informações de conexão com a base de dados no arquivo settings.py dentro do app "desafio"  
     ```
     DATABASES = {
     'default': {
       'ENGINE': 'django.db.backends.mysql',
       'NAME': 'desafio',
-      'USER': 'dbadmin',
+      'USER': 'desafio',
       'PASSWORD': 'desafio123',
       'HOST': 'localhost',
       'PORT': '3306',
@@ -27,7 +27,7 @@
     ```
     * para facilitar em script/db/create_db.sql há um script de criação de banco e usuário (este em localhost). Para criar o banco basta executar a linha abaixo:
     ```
-    mysql -u root -p < CAMINHO_DO_PROJETO/desafio/script_db/create_db.sql
+    mysql -u root -p < CAMINHO_DO_PROJETO/script_db/create_db.sql
     ```
     * caso o mysql seja usado de outro host o script deverá ser alterado para o hostname deste
 
