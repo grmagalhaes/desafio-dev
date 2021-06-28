@@ -3,7 +3,7 @@
 # Ambiente de desenvolvimento
 * Python 3.7
 * MySQL Server 8.0.17 
-  * O mesmo deverá estar instalado, no ar e com um usuário com permissões de DDL e DML)
+  * O mesmo deverá estar instalado, no ar e com um usuário com permissões de DDL e DML.
 * PyCharm 2021.1.2
 
 # Instalação
@@ -12,7 +12,7 @@
 * Criar um venv e habilitá-lo
 * Instalar as dependências (django, mysql e djangorestframework). Rodar dentro da pasta do repo.
     * pip -r requirements.txt
-* Configurar as informações de conexão com a base de dados no arquivo settings.py dentro da pasta interna "app":  
+* Configurar as informações de conexão com a base de dados no arquivo settings.py dentro da pasta interna "project":  
     ```
     DATABASES = {
     'default': {
@@ -32,14 +32,14 @@
     * caso o mysql seja usado de outro host o script deverá ser alterado para o hostname do servidor de BD.
 
     
-* Executar os comandos dentro da pasta interna "app" para atualizar e migrar a instalação do django para o MySQL
+* Executar os comandos dentro da pasta interna "project" para atualizar e migrar o esquema a partir do Django para o MySQL
     ```
     python manage.py makemigrations
     python manage.py migrate
     ```
 
 # Execução do Projeto
-* Para executar o projeto basta digitar o comando abaixo dentro da pasta interna "app"
+* Para executar o projeto basta digitar o comando abaixo dentro da pasta interna "project"
     ```
     python manage.py runserver
     ```
@@ -47,7 +47,7 @@
 * O modo DEBUG ficará ligado em função do propósito do desafio
 
 # Teste do Projeto
-* Para executar os testes basta digitar o comando abaixo dentro da pasta "app"
+* Para executar os testes basta digitar o comando abaixo dentro da pasta "project"
     ```
     python manage.py test
     ```
