@@ -10,7 +10,7 @@
 * Clonar o repositório 
   * https://github.com/grmagalhaes/desafio-dev.git
 * Criar um venv e habilitá-lo
-* Instalar as dependências (django, mysql e djangorestframework). Rodar dentro da pasta do repo.
+* Instalar as dependências (django, mysql). Rodar dentro da pasta do repo.
     * pip -r requirements.txt
 * Configurar as informações de conexão com a base de dados no arquivo settings.py dentro da pasta interna "project":  
     ```
@@ -25,11 +25,12 @@
       }
     }
     ```
-    * para facilitar em script/db/create_db.sql há um script de criação de banco e usuário (este em localhost). Para criar o banco basta executar a linha abaixo:
+    * para facilitar em script_db/create_db.sql há um script de criação de banco e usuário (este em localhost). Para criar o banco basta executar a linha abaixo:
     ```
     mysql -u root -p < CAMINHO_DO_PROJETO/script_db/create_db.sql
     ```
     * caso o mysql seja usado de outro host o script deverá ser alterado para o hostname do servidor de BD.
+    * o script já dá permissão para a criação do banco de teste (test_desafio no caso)
 
     
 * Executar os comandos dentro da pasta interna "project" para atualizar e migrar o esquema a partir do Django para o MySQL
