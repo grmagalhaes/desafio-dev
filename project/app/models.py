@@ -29,6 +29,8 @@ class Loja(models.Model):
     nome = models.CharField(max_length=19)
     representante = models.CharField(max_length=14)
 
+    objects = models.Manager()
+
 
 class Transacao(models.Model):
     tipo = models.IntegerField(default=0)
