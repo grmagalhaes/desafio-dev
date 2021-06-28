@@ -1,13 +1,10 @@
-from django.template import loader
-
 # Create your views here.
 
 from django.shortcuts import render
-from django.http import HttpResponse
 from .transactions import parse_cnab
 from .transactions import salva_dados
 from .transactions import gera_tabela
-
+from .transactions import purge
 
 def index(request):
     context = dict()
@@ -17,7 +14,6 @@ def index(request):
 
 
 def model_form_upload(request):
-    loader.get_template('app/index.html')
     context = dict()
 
     if request.method == 'POST':
@@ -39,3 +35,9 @@ def model_form_upload(request):
     else:
         context.update({'tabela': gera_tabela()})
         return render(request, 'app/index.html', context)
+
+def purge_all(request):
+
+    purge()
+    context = {'msg': 'Base de dados limpa com sucesso'}
+    return render(request, 'app/index.html', context)

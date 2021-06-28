@@ -86,3 +86,8 @@ def gera_tabela():
                        'cpf': '', 'cartao': 'Saldo', 'hora': '{:.2f}'.format(loja.retorna_saldo(loja_id))})
 
     return tabela
+
+def purge():
+    Transacao.objects.all().delete()
+    Loja.objects.all().delete()
+    return True

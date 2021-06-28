@@ -47,6 +47,14 @@
 * O projeto estará disponível em http://localhost:8000/
 * O modo DEBUG ficará ligado em função do propósito do desafio
 
+# Funcionamento do Projeto
+* Para simplificar foi criada apenas uma tela onde:
+  - A partir do botão "Escolher arquivo" o usuário poderá escolher o CNAB.txt (há verificação de formato)
+  - Botão "Enviar" para fazer o envio do arquivo para o servidor. Após o parse e inserção na base a tabela é atualizada
+  - Botão "Atualizar" para atualizar os valores da tabela
+  - Botão "Limpar Base" para limpar a base de dados, facilitando os testes
+  
+
 # Teste do Projeto
 * Para executar os testes basta digitar o comando abaixo dentro da pasta "project"
     ```

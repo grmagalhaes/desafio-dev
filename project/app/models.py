@@ -47,7 +47,6 @@ class Loja(models.Model):
         return saldo
 
 
-
 class Transacao(models.Model):
     tipo = models.IntegerField(default=0)
     data = models.DateField()
@@ -58,4 +57,3 @@ class Transacao(models.Model):
     loja_id = models.ForeignKey(Loja, on_delete=models.CASCADE)
 
     objects = models.Manager()
-

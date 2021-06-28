@@ -19,11 +19,11 @@
     <span>Mensagem: {{ msg }}</span>
     <p>
 </form>
-<form action="/app" method="GET">
-    <input type="submit" value="Atualizar"/>
-</form>
-
-<p><p>
+<div>
+    <div style="float: left; width: 200px"><form action="/app" method="GET"><input type="submit" value="Atualizar"/></form></div>
+    <div style="float: left; width: 200px"><form action="/app/clear" method="GET"><input type="submit" value="Limpa Base"/></form></div>
+</div>
+<br>
 <hr>
 <p><p>
 <table class="transactions">
