@@ -53,7 +53,6 @@ def salva_dados(registros):
             transacao.save()
 
             loja = Loja()
-            print(f'saldo: {loja.retorna_saldo(loja_id)}')
 
         except ValueError:
             return False

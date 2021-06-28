@@ -6,10 +6,8 @@ from .transactions import salva_dados
 from .transactions import gera_tabela
 from .transactions import purge
 
+
 def index(request):
-    context = dict()
-    print(gera_tabela)
-    context = {'tabela': gera_tabela()}
     return render(request, 'app/index.html', {'tabela': gera_tabela()})
 
 
@@ -36,8 +34,8 @@ def model_form_upload(request):
         context.update({'tabela': gera_tabela()})
         return render(request, 'app/index.html', context)
 
-def purge_all(request):
 
+def purge_all(request):
     purge()
     context = {'msg': 'Base de dados limpa com sucesso'}
     return render(request, 'app/index.html', context)
