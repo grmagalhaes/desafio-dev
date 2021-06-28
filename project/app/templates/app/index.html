@@ -4,20 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Desafio bycoders_</title>
-    <link rel="stylesheet" href="/app{% static 'css/desafio.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/desafio.css' %}"/>
 </head>
 <body>
-<spam class="header">Desafio bycoders_</spam>
-</p></p>
-<form action="/send" method="POST">
-    <label for 'sendfile'>Envio de arquivo CNAB: </label>
-    <input type="file" id="cnab" value="Selecione o arquivo"/>
-    </p>
+<span class="header">Desafio bycoders_</span>
+<p><p>
+{% block content %}
+<form action="/app/send" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="cnab">Envio de arquivo CNAB: </label>
+    <input type="file" required accept=".txt" name="cnab" id="cnab"/>
+    <p>
     <input type="submit" value="Enviar"/>
 </form>
-</p></p>
+
+<p><p>
 <hr>
-</p></p>
+<p><p>
 <table id="transactions">
     <tr>
         <th>Loja</th>
@@ -97,6 +100,6 @@
         <td>15:00</td>
     </tr>
 </table>
-
+{% endblock %}
 </body>
 </html>
