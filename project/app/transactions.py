@@ -1,5 +1,6 @@
 from .models import Loja
 from .models import Transacao
+from .models import Tipo
 
 
 def parse_cnab(arquivo):
@@ -58,3 +59,30 @@ def salva_dados(registros):
             return False
 
     return True
+
+
+def gera_tabela():
+    lojas = Loja.objects.all().order_by('id')
+    tabela = []
+    tipo = Tipo()
+
+    for loja in lojas:
+        loja_id = Loja.objects.get(nome=loja.nome)
+        transacoes = Transacao.objects.filter(loja_id=loja_id)
+
+        for transacao in transacoes:
+            detalhes_tipo = tipo.get_tipo(transacao.tipo)
+            tabela.append({'loja': loja.nome, 'representante': loja.representante,
+                           'descricao': detalhes_tipo['nome'],
+                           'natureza': detalhes_tipo['natureza'],
+                           'data': transacao.data, 'valor': '{:.2f}'.format(transacao.valor),
+                           'cpf': transacao.cpf, 'cartao': transacao.cartao, 'hora': transacao.hora
+                          })
+
+        tabela.append({'loja': loja.nome, 'representante': '',
+                       'descricao': '',
+                       'natureza': '',
+                       'data': '', 'valor': '',
+                       'cpf': '', 'cartao': 'Saldo', 'hora': '{:.2f}'.format(loja.retorna_saldo(loja_id))})
+
+    return tabela

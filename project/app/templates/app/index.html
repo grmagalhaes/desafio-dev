@@ -17,12 +17,16 @@
     <input type="submit" value="Enviar"/>
     <p>
     <span>Mensagem: {{ msg }}</span>
+    <p>
 </form>
-<input type="button" href="/app" value="Atualizar"/>
+<form action="/app" method="GET">
+    <input type="submit" value="Atualizar"/>
+</form>
+
 <p><p>
 <hr>
 <p><p>
-<table id="transactions">
+<table class="transactions">
     <tr>
         <th>Loja</th>
         <th>Representante</th>
@@ -34,72 +38,20 @@
         <th>Cartão</th>
         <th>Hora</th>
     </tr>
+    {% for reg in tabela %}
     <tr>
-        <td>bycoders_</td>
-        <td>User1</td>
-        <td>Débito</td>
-        <td>Entrada</td>
-        <td>27/06/2021</td>
-        <td>2.435,12</td>
-        <td>123.456.789-09</td>
-        <td>1111222233334444</td>
-        <td>15:00</td>
+        <td>{{reg.loja}}</td>
+        <td>{{reg.representante}}</td>
+        <td>{{reg.descricao}}</td>
+        <td>{{reg.natureza}}</td>
+        <td>{{reg.data}}</td>
+        <td>{{reg.valor}}</td>
+        <td>{{reg.cpf}}</td>
+        <td>{{reg.cartao}}</td>
+        <td>{{reg.hora}}</td>
     </tr>
-    <tr>
-        <td>bycoders_</td>
-        <td>User1</td>
-        <td>Débito</td>
-        <td>Entrada</td>
-        <td>27/06/2021</td>
-        <td>2.435,12</td>
-        <td>123.456.789-09</td>
-        <td>1111222233334444</td>
-        <td>15:00</td>
-    </tr>
-    <tr>
-        <td>bycoders_</td>
-        <td>User1</td>
-        <td>Débito</td>
-        <td>Entrada</td>
-        <td>27/06/2021</td>
-        <td>2.435,12</td>
-        <td>123.456.789-09</td>
-        <td>1111222233334444</td>
-        <td>15:00</td>
-    </tr>
-    <tr>
-        <td>bycoders_</td>
-        <td>User1</td>
-        <td>Débito</td>
-        <td>Entrada</td>
-        <td>27/06/2021</td>
-        <td>2.435,12</td>
-        <td>123.456.789-09</td>
-        <td>1111222233334444</td>
-        <td>15:00</td>
-    </tr>
-    <tr>
-        <td>bycoders_</td>
-        <td>User1</td>
-        <td>Débito</td>
-        <td>Entrada</td>
-        <td>27/06/2021</td>
-        <td>2.435,12</td>
-        <td>123.456.789-09</td>
-        <td>1111222233334444</td>
-        <td>15:00</td>
-    </tr>
-    <tr>
-        <td>bycoders_</td>
-        <td>User1</td>
-        <td>Débito</td>
-        <td>Entrada</td>
-        <td>27/06/2021</td>
-        <td>2.435,12</td>
-        <td>123.456.789-09</td>
-        <td>1111222233334444</td>
-        <td>15:00</td>
-    </tr>
+    {% endfor %}
+
 </table>
 </body>
 </html>

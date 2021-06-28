@@ -6,25 +6,24 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .transactions import parse_cnab
 from .transactions import salva_dados
+from .transactions import gera_tabela
 
 
 def index(request):
-    template = loader.get_template('app/index.html')
-    context = {
-        'loja_id': 2,
-    }
-    return HttpResponse(template.render(context, request))
+    context = dict()
+    print(gera_tabela)
+    context = {'tabela': gera_tabela()}
+    return render(request, 'app/index.html', {'tabela': gera_tabela()})
 
 
 def model_form_upload(request):
     loader.get_template('app/index.html')
-    context = {}
+    context = dict()
 
     if request.method == 'POST':
         cnab = request.FILES['cnab']
 
         registros = parse_cnab(cnab)
-        print(registros)
 
         if registros:
             retorno = salva_dados(registros)
@@ -35,6 +34,8 @@ def model_form_upload(request):
         else:
             context = {'msg': 'Erro ao processar arquivo'}
 
+        context.update({'tabela': gera_tabela()})
         return render(request, 'app/index.html', context)
     else:
+        context.update({'tabela': gera_tabela()})
         return render(request, 'app/index.html', context)
