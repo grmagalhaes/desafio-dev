@@ -31,6 +31,22 @@ class Loja(models.Model):
 
     objects = models.Manager()
 
+    def retorna_saldo(self, loja_id):
+
+        tipos = Tipo()
+        transacoes = Transacao.objects.filter(loja_id=loja_id)
+
+        saldo = 0.0
+        if transacoes is not None:
+            for transacao in transacoes:
+                tipo = tipos.get_tipo(transacao.tipo)
+                if tipo['sinal'] == '+':
+                    saldo += transacao.valor
+                else:
+                    saldo -= transacao.valor
+        return saldo
+
+
 
 class Transacao(models.Model):
     tipo = models.IntegerField(default=0)
@@ -43,17 +59,3 @@ class Transacao(models.Model):
 
     objects = models.Manager()
 
-    def retorna_saldo(self, loja_id):
-
-        tipos = Tipo()
-        transacoes = self.objects.filter(loja_id=loja_id)
-
-        saldo = 0
-        if transacoes is not None:
-            for transacao in transacoes:
-                tipo = tipos.get_tipo(transacao.tipo)
-                if tipo['sinal'] == '+':
-                    saldo += transacao['valor']
-                else:
-                    saldo -= transacao['valor']
-        return saldo

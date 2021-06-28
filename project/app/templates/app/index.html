@@ -9,7 +9,6 @@
 <body>
 <span class="header">Desafio bycoders_</span>
 <p><p>
-{% block content %}
 <form action="/app/send" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <label for="cnab">Envio de arquivo CNAB: </label>
@@ -18,9 +17,8 @@
     <input type="submit" value="Enviar"/>
     <p>
     <span>Mensagem: {{ msg }}</span>
-
 </form>
-
+<input type="button" href="/app" value="Atualizar"/>
 <p><p>
 <hr>
 <p><p>
@@ -103,6 +101,5 @@
         <td>15:00</td>
     </tr>
 </table>
-{% endblock %}
 </body>
 </html>
