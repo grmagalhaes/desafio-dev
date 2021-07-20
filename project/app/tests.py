@@ -6,7 +6,7 @@ from datetime import datetime
 # Create your tests here.
 
 
-class DesafioTextCase(TestCase):
+class DesafioTestCase(TestCase):
 
     def test_criacao_loja(self):
         Loja.objects.create(nome='Teste', representante='Gerson')
